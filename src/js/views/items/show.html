@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<div class="row">
+  <div class="col-lf-6 col-md-offset-3">
+    <div class="item">
+      <h2><strong> {{ itemsShow.item.title }} </strong></h2>
+      <img ng-src="{{ itemsShow.item.image_src }}">
+
+
+      <h3><strong>Location: </strong>{{ itemsShow.item.location }}</h3>
+      <h3><strong>Brand: </strong>{{ itemsShow.item.brand}}</h3>
+      <h3><strong>Type: </strong>{{ itemsShow.item.super_type}}</h3>
+      <h3><strong>Sub_type: </strong>{{ itemsShow.item.sub_type}}</h3>
+      <h4><strong>Specs: </strong>{{ itemsShow.item.short_description  }}</h4>
+      <h4><strong>Description: </strong>{{ itemsShow.item.full_description  }}</h4>
+      <h4><strong>Price: </strong>{{ itemsShow.item.price  }}</h4>
+
+      <p>Created by: <strong>{{ itemsShow.item.user.username }}</strong></p>
+
+
+      <button ui-sref="itemsEdit({id: itemsShow.item.id})" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Edit</button>
+      <button ng-click="itemsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Delete</button>
+    </div>
+  </div>
+</div>

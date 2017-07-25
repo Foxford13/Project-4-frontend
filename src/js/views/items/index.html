@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<ul class="row">
+  <li ng-repeat="item in itemsIndex.all" class="col-md-4 col-md-offset-1">
+    <div class="item">
+      <h2>{{ item.title}}</h2>
+        <button ui-sref="itemsShow({id: item.id})">View</button>
+    </div>
+  </li>
+
+</ul>

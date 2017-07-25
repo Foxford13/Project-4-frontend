@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<div class="row">
+  <div class="col-md-6">
+    <form ng-submit="itemsEdit.update()">
+
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" ng-model="itemsEdit.item.title">
+      </div>
+      <div>
+      <label for="base64">Image</label>
+      <input type="file" base64 name="base64" id="base64" ng-model="itemsEdit.item.base64">
+    </div>
+      <div>
+        <label for="brand">Brand</label>
+        <input type="text" id="brand" name="brand" ng-model="itemsEdit.item.brand">
+      </div>
+      <div>
+        <label for="super_type">Type</label>
+        <input type="text" id="super_type" name="super_type" ng-model="itemsEdit.item.super_type">
+      </div>
+      <div>
+        <label for="sub_type">Sub type</label>
+        <input type="text" id="sub_type" name="sub_type" ng-model="itemsEdit.item.sub_type">
+      </div>
+      <div>
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" ng-model="itemsEdit.item.location">
+      </div>
+      <div>
+        <label for="short_description">Short Description</label>
+        <input type="text" id="short_description" name="short_description" ng-model="itemsEdit.item.short_description">
+      </div>
+      <div>
+        <label for="full_description">Full Description</label>
+        <input type="text" id="full_description" name="full_description" ng-model="itemsEdit.item.full_description">
+      </div>
+      <div>
+        <label for="price">Price</label>
+        <input type="text" id="price" name="price" ng-model="itemsEdit.item.price">
+      </div>
+      <button>Create</button>
+  
+    </form>
+  </div>
+</div>

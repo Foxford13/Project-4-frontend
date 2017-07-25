@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html ng-app="finalProject">
-  <head>
-    <meta charset="utf-8">
-    <title>Angular Stack Setup</title>
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body ng-controller="MainCtrl as main">
-    <ul>
-      <li ng-repeat="user in main.users">
-        <strong>{{ user.username }}</strong>
-        <p><em>{{ user.firstname }} {{ user.lastname }}</em></p>
-      </li>
-    </ul>
-  </body>
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title>Angular Stack Setup</title>
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+
+</head>
+<body ng-controller="MainCtrl as main" ng-class="main.PageName">
+  <header>
+    <nav>
+      <ul>
+        <li><a ui-sref="home">Final Project</a></li>
+
+        <li ng-if="!main.isAuthenticated()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
+        <li ng-if="!main.isAuthenticated()"><a ui-sref="register" ui-sref-active="active">Register</a></li>
+        <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
+        <li ng-if="main.isAuthenticated()"><a ui-sref="itemsNew" ui-sref-active="active">New Item</a></li>
+        <li ng-if="main.isAuthenticated()"><a ui-sref="conversationsIndex" ui-sref-active="active">Convo</a></li>
+        <li><a ui-sref="itemsIndex" ui-sref-active="active">Items</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="message" ng-if="main.message">
+    <div class="container">{{main.message}}</div>
+  </div>
+  <h1>{{2 + 2}}</h1>
+  <main ui-view></main>
+</body>
 </html>

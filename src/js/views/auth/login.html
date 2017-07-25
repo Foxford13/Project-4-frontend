@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<div class="row">
+  <div class="col-md-6">
+
+    <form ng-submit="auth.login()" name="auth.authForm">
+      <div>
+        <label>Email</label>
+        <input type="text" ng-model="auth.credentials.email" required>
+
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" ng-model="auth.credentials.password" required>
+      </div>
+      <button>Login</button>
+    </form>
+  </div>
+</div>
+<div ng-messages="postsEdit.postForm.info.$error" ng-show="postsEdit.postForm.$submitted || postsEdit.postForm.info.$touched">
+      <div ng-message="required" class="notificationThin">About is required</div>
+    </div>
