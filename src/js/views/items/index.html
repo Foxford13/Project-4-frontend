@@ -5,17 +5,49 @@
   <div class="row">
     <div class="searchBox col-lg-4 col-lg-offset-5 ">
       <i class="fa fa-search" aria-hidden="true"></i>
-      <input type="text" class="searchBox" ng-model="itemsIndex.q" placeholder="Search.... ">
+      <input type="text" class="searchBox" ng-model="itemsIndex.title" placeholder="Search.... ">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div>
+        <label>Type</label>
+        <select name="super_type" ng-model="itemsIndex.super_type">
+          <option value="" default>Select your option</option>
+          <option value="Hardware" >Hardware</option>
+          <option value="Accessory">Accessory</option>
+        </select>
+      </div>
+      <div>
+        <label>Sub type</label>
+        <select ng-show="itemsIndex.super_type=='Hardware' && itemsIndex.super_type!='Accessory'" ng-model="itemsIndex.sub_type">
+          <option value="" default>Select your option</option>
+          <option value="Motherboard">Motherboard</option>
+          <option value="CPU">CPU</option>
+          <option value="GPU">GPU</option>
+          <option value="RAM">RAM</option>
+          <option value="Power Supply">Power Supply</option>
+          <option value="Other">Other</option>
+        </select>
+        <select ng-show="itemsIndex.super_type=='Accessory' && itemsIndex.super_type!='Hardware'" ng-model="itemsIndex.sub_type">
+          <option value="" default>Select your option</option>
+          <option value="Monitor">Monitor</option>
+          <option value="Mouse">Mouse</option>
+          <option value="Cables">Cables</option>
+          <option value="VR">VR</option>
+          <option value="RGB lighting">RGB lighting</option>
+          <option value="Gamepad">Gamepad</option>
+          <option value="Keyboard">Keyboard</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
     </div>
   </div>
 
   <div class="row index-items ">
-
-
     <ul>
 
-
-      <li class="col-lg-4 col-md-6 col-sm-12 " ng-repeat="item in itemsIndex.filtered">
+      <li class="col-lg-3 col-md-6 col-sm-12 " ng-repeat="item in itemsIndex.filtered">
         <div class="item">
           <h3>{{ item.title}}</h3>
           <img class="image-index justify-content-center" ng-src="{{ item.image_src }}">

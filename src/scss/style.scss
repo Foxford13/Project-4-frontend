@@ -27,7 +27,7 @@ nav {
 
         color: white;
         text-decoration: none !important;
-        margin: 0px;
+        padding: 10px;
         transition: 0.2s ease;
 
         &:focus, &:hover {
@@ -44,7 +44,7 @@ nav {
     li:nth-child(5){
       float: right;
     }
-    li:hover {
+    a:hover {
       padding-top: 8px;
       padding-bottom: 8px;
       background-color: white;
@@ -57,7 +57,8 @@ nav {
   position: relative;
 
   // width:  2px;
-  height: 150px;
+  max-height: 150px;
+  max-width: 200px;
   background-position: 50% 50%;
   background-repeat:   no-repeat;
   background-size:     cover;
@@ -69,16 +70,16 @@ nav {
     button {
       position: absolute;
       bottom: 0;
-      left: 35%;
+      left: 30%;
       background-color: rgba(0, 78, 79, 0.5);
       border: none;
       border-radius: 2px;
       margin-bottom: 15px;
       color: rgba(227, 229, 227, 1);
       color: white;
-
-
-
+    }
+    button:hover{
+      background-color: rgba(0, 78, 79, 1);
     }
     border: 1px solid rgba(0, 78, 79, 1);
     padding: 15px;
@@ -144,16 +145,19 @@ form {
     margin-top: 15px;
     text-align: center;
     background-color: rgba(0, 78, 79, 0.2);
-border: 1px solid;
+    border: 1px solid;
   }
   .description-show {
-      background-color: rgba(0, 78, 79, 0.2);
-      border: 1px solid;
+    background-color: rgba(0, 78, 79, 0.2);
+    border: 1px solid;
   }
 }
 .image-show {
 
-img {
-  max-height: 400px;
+  img {
+    max-height: 400px;
+  }
 }
+.profile-item-image {
+  max-height: 100px;
 }

@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <div class="container">
-
-
 <div class="row">
   <div class="col-md-6 submit-form">
     <form ng-submit="itemsNew.create()" name="itemsNew.postForm" novalidate>
@@ -9,7 +7,7 @@
       <div>
         <label for="title">Title</label>
         <input type="text" id="title" name="title" ng-model="itemsNew.item.title" required>
-        <div ng-messages="itemsNew.postForm.title.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.title.$touched">
+        <div ng-messages="itemsNew.postForm.title.$error" ng-if="itemsNew.postForm.$submitted || itemsNew.postForm.title.$touched">
           <div ng-message="required" class="notificationThin">Title is required.</div>
         </div>
       </div>
@@ -32,7 +30,7 @@
       <div>
           <label>Type</label>
           <select name="super_type" ng-model="itemsNew.item.super_type" required>
-             <option value="" disabled selected>Select your option</option>
+             <option value="" >Select your option</option>
             <option value="Hardware" >Hardware</option>
             <option value="Accessories">Accessories</option>
           </select>
@@ -42,8 +40,8 @@
       </div>
       <div>
           <label>Sub type</label>
-          <select ng-show="itemsNew.item.super_type=='Hardware'" ng-model="itemsNew.item.sub_type">
-            <option value="" disabled selected>Select your option</option>
+          <select name="sub_type" ng-show="itemsNew.item.super_type=='Hardware'" ng-model="itemsNew.item.sub_type" required>
+            <option value="" >Select your option</option>
             <option value="Motherboard">Motherboard</option>
             <option value="CPU">CPU</option>
             <option value="GPU">GPU</option>
@@ -51,8 +49,8 @@
             <option value="Power Supply">Power Supply</option>
             <option value="Other">Other</option>
           </select>
-          <select ng-show="itemsNew.item.super_type=='Accessories'" ng-model="itemsNew.item.sub_type">
-            <option value="" disabled selected>Select your option</option>
+          <select name="name" ng-show="itemsNew.item.super_type=='Accessories'" ng-model="itemsNew.item.sub_type" required>
+            <option value="" >Select your option</option>
             <option value="Monitor">Monitor</option>
             <option value="Mouse">Mouse</option>
             <option value="Cables">Cables</option>
@@ -62,6 +60,9 @@
             <option value="Keyboard">Keyboard</option>
             <option value="Other">Other</option>
           </select>
+          <div ng-messages="itemsNew.postForm.sub_type.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.sub_type.$touched">
+            <div ng-message="required" class="notificationThin">Sub type is required.</div>
+          </div>
       </div>
       <div>
         <label for="location">Location</label>

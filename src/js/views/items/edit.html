@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <div class="container">
-
-
 <div class="row">
   <div class="col-md-6 submit-form">
     <form ng-submit="itemsEdit.update()" name="itemsEdit.postForm" novalidate>
@@ -9,7 +7,7 @@
       <div>
         <label for="title">Title</label>
         <input type="text" id="title" name="title" ng-model="itemsEdit.item.title" required>
-        <div ng-messages="itemsEdit.postForm.title.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.title.$touched">
+        <div ng-messages="itemsEdit.postForm.title.$error" ng-if="itemsEdit.postForm.$submitted || itemsEdit.postForm.title.$touched">
           <div ng-message="required" class="notificationThin">Title is required.</div>
         </div>
       </div>
@@ -32,7 +30,7 @@
       <div>
           <label>Type</label>
           <select name="super_type" ng-model="itemsEdit.item.super_type" required>
-             <option value="" disabled selected>Select your option</option>
+             <option value="" >Select your option</option>
             <option value="Hardware" >Hardware</option>
             <option value="Accessories">Accessories</option>
           </select>

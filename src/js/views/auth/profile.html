@@ -18,34 +18,30 @@
       </div>
     </div>
 
-    <ul>
-      <li class="col-lg-4 col-md-6 col-sm-12 " ng-repeat="user in profile">
-
-        <li ng-repeat="item in user">
-          <p>here {{item}}</p>
-        </li>
-
-      </li>
-    </ul>
-
     <div class="col-12 col-md-8 col-lg-7">
 
       <h2 ng-if="profile.user"> {{ profile.user.username }}  – <span> {{ profile.user.firstname }}, {{ profile.user.lastname }}</span></h2>
-
-
-      <!--
-      <div class="rating">
-      <div style="margin:15px 0;">Total User rating: <b>{{profile.user.averageRating}}</b></div>
-      <span uib-rating ng-model="profile.user.averageRating" read-only="true" state-on="'glyphicon-ok-sign'" state-off="'glyphicon-ok-circle'" aria-labelledby="custom-icons-1" max="10" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']"></span>
-    </div> -->
+      <h3>User Reviews</h3>
 
 
 
-    <h3>User Reviews</h3>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-10">
+      <ul>
+        <li class="col-lg-3 col-md-12 col-sm-12 " ng-repeat="item in profile.user.items">
+          <img class="profile-item-image" ng-src="{{ item.image_src }}">
+          <a ui-sref="ItemsShowCtrl({ id: item.id })">  <p> {{item.title}}</p></a>
+          <p> {{item.short_description |  limitTo:50}}</p>
+              <button ng-click="profile.delete(item)">Delete</button>
+          <button ui-sref="itemsEdit({id: item.id})" ng-if="main.isAuthenticated() ">Edit</button>
+        </li>
+      </ul>
 
 
-
+    </div>
 
   </div>
-</div>
 </div>

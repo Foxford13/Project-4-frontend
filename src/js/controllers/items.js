@@ -10,7 +10,9 @@ angular
 ItemsIndexCtrl.$inject = ['Item', 'filterFilter', '$scope'];
 function ItemsIndexCtrl(Item, filterFilter, $scope) {
   const vm = this;
-
+  vm.super_type = null;
+  vm.sub_type = null;
+  vm.q = null;
 
   Item.query()
   .$promise
@@ -22,19 +24,21 @@ function ItemsIndexCtrl(Item, filterFilter, $scope) {
 
 
   function itemFilter() {
-
-    const params = { title: vm.q };
-
-
-
+    const params = {};
+    if(vm.super_type) params.super_type = vm.super_type;
+    if(vm.sub_type) params.sub_type = vm.sub_type;
+    if(vm.title) params.title = vm.title;
     vm.filtered = filterFilter(vm.all, params);
-
-
   }
-  $scope.$watch(() => vm.q, itemFilter);
+  $scope.$watchGroup([
+    () => vm.title,
+    () => vm.super_type,
+    () => vm.sub_type
+  ], itemFilter);
 
-
-
+  $scope.$watch(() => vm.super_type, () => {
+    vm.sub_type = null;
+  });
 }
 ItemsNewCtrl.$inject = ['Item', 'User','$state'];
 function ItemsNewCtrl(Item, User, $state) {
