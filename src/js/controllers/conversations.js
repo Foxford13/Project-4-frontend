@@ -1,11 +1,10 @@
 angular
 .module('finalProject')
-.controller('ConversationsCtrl', ConversationsCtrl);
+.controller('ConversationsIndexCtrl', ConversationsIndexCtrl)
+.controller('ConversationsShowCtrl', ConversationsShowCtrl);
 
-
-
-ConversationsCtrl.$inject = ['Conversation', 'Message'];
-function ConversationsCtrl(Conversation, Message) {
+ConversationsIndexCtrl.$inject = ['Conversation', 'Message'];
+function ConversationsIndexCtrl(Conversation) {
   const vm = this;
   vm.message = {};
   Conversation
@@ -16,23 +15,24 @@ function ConversationsCtrl(Conversation, Message) {
       vm.message.conversation_id = vm.all[0].id;
     });
 
-  //
-  // console.log(vm.all);
-  // console.log(vm.all[0]);
+
+}
+
+ConversationsShowCtrl.$inject = ['Conversation', 'Message', '$state'];
+function ConversationsShowCtrl(Conversation, Message, $state) {
+  const vm = this;
+  vm.message = {};
+  vm.conversation = Conversation.get($state.params);
 
 
   function sendMessage() {
-    // vm.message.conversation_id = vm.conversation.id;
-    
+
     Message
-    .save({ id: vm.message.conversation_id }, vm.message)
+    .save($state.params, vm.message)
     .$promise
     .then((message) => {
-      console.log(message);
-      const newMessage = message.messages.pop();
-      vm.all[0].messages.push(newMessage);
+      vm.conversation.messages.push(message);
       vm.message = {};
-
     });
 
   }

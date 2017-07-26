@@ -9,7 +9,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
 
   .state('itemsIndex', {
-    url: '/items',
+    url: '/',
     templateUrl: 'js/views/items/index.html',
     controller: 'ItemsIndexCtrl as itemsIndex'
   })
@@ -38,10 +38,20 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     templateUrl: 'js/views/auth/register.html',
     controller: 'AuthCtrl as auth'
   })
+  .state('profile', {
+    url: '/profile/:id',
+    templateUrl: 'js/views/auth/profile.html',
+    controller: 'ProfileCtrl as profile'
+  })
   .state('conversationsIndex', {
     url: '/conversations',
     templateUrl: 'js/views/conversations/index.html',
-    controller: 'ConversationsCtrl as conversationsIndex'
+    controller: 'ConversationsIndexCtrl as conversationsIndex'
+  })
+  .state('conversationsShow', {
+    url: '/conversations/:id',
+    templateUrl: 'js/views/conversations/show.html',
+    controller: 'ConversationsShowCtrl as conversationsShow'
   });
   $urlRouterProvider.otherwise('/');
 }

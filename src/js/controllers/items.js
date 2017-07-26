@@ -7,15 +7,36 @@ angular
 
 
 
-ItemsIndexCtrl.$inject = ['Item'];
-function ItemsIndexCtrl(Item) {
+ItemsIndexCtrl.$inject = ['Item', 'filterFilter', '$scope'];
+function ItemsIndexCtrl(Item, filterFilter, $scope) {
   const vm = this;
 
-  vm.all = Item.query();
-  console.log(vm.all);
-  console.log('index items');
+
+  Item.query()
+  .$promise
+  .then((items) => {
+    vm.all = items;
+    itemFilter();
+
+  });
+
+
+  function itemFilter() {
+
+    const params = { title: vm.q };
+
+
+
+    vm.filtered = filterFilter(vm.all, params);
+
+
+  }
+  $scope.$watch(() => vm.q, itemFilter);
+
+
+
 }
-ItemsNewCtrl.$inject = ['Item', 'User', '$state'];
+ItemsNewCtrl.$inject = ['Item', 'User','$state'];
 function ItemsNewCtrl(Item, User, $state) {
   const vm = this;
   vm.item = {};
@@ -29,10 +50,12 @@ function ItemsNewCtrl(Item, User, $state) {
   }
 
   vm.create = itemsCreate;
+
+
 }
 
-ItemsShowCtrl.$inject = ['Item', 'User',  '$stateParams', '$state', '$auth'];
-function ItemsShowCtrl(Item, User, $stateParams, $state, $auth) {
+ItemsShowCtrl.$inject = ['Item', 'User',  '$stateParams', '$state', '$auth', 'Conversation'];
+function ItemsShowCtrl(Item, User, $stateParams, $state, $auth, Conversation) {
   const vm = this;
   if ($auth.getPayload()) vm.currentUser = User.get({ id: $auth.getPayload().id });
 
@@ -51,6 +74,17 @@ function ItemsShowCtrl(Item, User, $stateParams, $state, $auth) {
     .update({ id: vm.item.id }, vm.item);
   }
   vm.update = itemsUpdate;
+
+  function contactCreator(sender_id, receiver_id) {
+    console.log('works');
+    Conversation
+    .save({ sender_id, receiver_id })
+    .$promise
+    .then(() => $state.go('conversationsIndex'));
+
+
+  }
+  vm.contact = contactCreator;
 
 }
 ItemsEditCtrl.$inject = ['Item', 'User', '$stateParams', '$state'];

@@ -1,32 +1,49 @@
 <!DOCTYPE html>
+<div class="container">
+
+
 <div class="row">
-  <div class="col-md-6">
-    <form ng-submit="itemsNew.create()">
+  <div class="col-md-6 submit-form">
+    <form ng-submit="itemsNew.create()" name="itemsNew.postForm" novalidate>
 
       <div>
         <label for="title">Title</label>
-        <input type="text" id="title" name="title" ng-model="itemsNew.item.title">
+        <input type="text" id="title" name="title" ng-model="itemsNew.item.title" required>
+        <div ng-messages="itemsNew.postForm.title.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.title.$touched">
+          <div ng-message="required" class="notificationThin">Title is required.</div>
+        </div>
       </div>
       <div>
       <label for="base64">Image</label>
       <input type="file" base64 name="base64" id="base64" ng-model="itemsNew.item.base64">
+      <div ng-messages="itemsNew.postForm.image.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.image.$touched">
+        <div ng-message="required" class="notificationThin">Image is required.</div>
+      </div>
     </div>
 
 
       <div>
         <label for="brand">Brand</label>
-        <input type="text" id="brand" name="brand" ng-model="itemsNew.item.brand">
+        <input type="text" id="brand" name="brand" ng-model="itemsNew.item.brand" required>
+        <div ng-messages="itemsNew.postForm.brand.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.brand.$touched">
+          <div ng-message="required" class="notificationThin">Brand is required.</div>
+        </div>
       </div>
       <div>
           <label>Type</label>
-          <select ng-model="itemsNew.item.super_type">
-            <option value="Hardware">Hardware</option>
+          <select name="super_type" ng-model="itemsNew.item.super_type" required>
+             <option value="" disabled selected>Select your option</option>
+            <option value="Hardware" >Hardware</option>
             <option value="Accessories">Accessories</option>
           </select>
+          <div ng-messages="itemsNew.postForm.super_type.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.super_type.$touched">
+            <div ng-message="required" class="notificationThin">Type is required.</div>
+          </div>
       </div>
       <div>
           <label>Sub type</label>
           <select ng-show="itemsNew.item.super_type=='Hardware'" ng-model="itemsNew.item.sub_type">
+            <option value="" disabled selected>Select your option</option>
             <option value="Motherboard">Motherboard</option>
             <option value="CPU">CPU</option>
             <option value="GPU">GPU</option>
@@ -35,6 +52,7 @@
             <option value="Other">Other</option>
           </select>
           <select ng-show="itemsNew.item.super_type=='Accessories'" ng-model="itemsNew.item.sub_type">
+            <option value="" disabled selected>Select your option</option>
             <option value="Monitor">Monitor</option>
             <option value="Mouse">Mouse</option>
             <option value="Cables">Cables</option>
@@ -47,22 +65,39 @@
       </div>
       <div>
         <label for="location">Location</label>
-        <input type="text" id="location" name="location" ng-model="itemsNew.item.location">
+        <input type="text" id="location" name="location" ng-model="itemsNew.item.location" required>
+        <div ng-messages="itemsNew.postForm.location.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.location.$touched">
+          <div ng-message="required" class="notificationThin">Location is required.</div>
+        </div>
       </div>
       <div>
         <label for="short_description">Short Description</label>
-        <input type="text" id="short_description" name="short_description" ng-model="itemsNew.item.short_description">
+        <input type="text" id="short_description" name="short_description" ng-model="itemsNew.item.short_description" required>
+        <div ng-messages="itemsNew.postForm.short_description.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.short_description.$touched">
+          <div ng-message="required" class="notificationThin">Short description is required.</div>
+        </div>
       </div>
       <div>
         <label for="full_description">Full Description</label>
-        <input type="text" id="full_description" name="full_description" ng-model="itemsNew.item.full_description">
+        <input type="textarea" id="full_description" name="full_description" ng-model="itemsNew.item.full_description" required>
+        <div ng-messages="itemsNew.postForm.full_description.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.full_description.$touched">
+          <div ng-message="required" class="notificationThin">Description is required.</div>
+        </div>
       </div>
       <div>
         <label for="price">Price</label>
-        <input type="text" id="price" name="price" ng-model="itemsNew.item.price">
+        <input type="text" id="price" name="price" ng-model="itemsNew.item.price" required>
+        <div ng-messages="itemsNew.postForm.price.$error" ng-show="itemsNew.postForm.$submitted || itemsNew.postForm.price.$touched">
+          <div ng-message="required" class="notificationThin">Price is required.</div>
+        </div>
       </div>
-      <button>Create</button>
+      <div class="field">
+    <p class="control">
+      <input type="submit" class="button primary" value="Submit Post">
+    </p>
+  </div>
 
     </form>
   </div>
+</div>
 </div>
