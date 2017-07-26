@@ -90,6 +90,27 @@ function ItemsShowCtrl(Item, User, $stateParams, $state, $auth, Conversation) {
   }
   vm.contact = contactCreator;
 
+  function toggleWatching() {
+    console.log(vm.item);
+    const index = vm.item.watcher_ids.indexOf(vm.currentUser.id);
+    if(index > -1){
+      vm.item.watcher_ids.splice(index, 1);
+      vm.item.watchers.splice(index, 1);
+    } else {
+      vm.item.watcher_ids.push(vm.currentUser.id);
+      vm.item.watchers.push(vm.currentUser);
+    }
+    itemsUpdate();
+  }
+  vm.toggleWatching = toggleWatching;
+
+
+  function isWatching() {
+    return $auth.getPayload() && vm.item.$resolved && vm.item.watcher_ids.includes(vm.currentUser.id);
+  }
+
+  vm.isWatching = isWatching;
+
 }
 ItemsEditCtrl.$inject = ['Item', 'User', '$stateParams', '$state'];
 function ItemsEditCtrl(Item, User, $stateParams, $state) {

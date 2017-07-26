@@ -22,6 +22,10 @@
             <h4><strong>Price: </strong>{{ itemsShow.item.price  }}</h4>
 
             <p>Created by: <strong><a ui-sref="profile({ id: itemsShow.item.user.id })">{{ itemsShow.item.user.username }}</a></strong></p>
+
+            <button ng-click="itemsShow.toggleWatching()" ng-if="main.isAuthenticated() && !itemsShow.isWatching()" >Watch</button>
+            <button ng-click="itemsShow.toggleWatching()" ng-if="main.isAuthenticated() && itemsShow.isWatching()" >Un-watch</button>
+
             <button ui-sref="itemsEdit({id: itemsShow.item.id})" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Edit</button>
             <button ng-click="itemsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Delete</button>
 

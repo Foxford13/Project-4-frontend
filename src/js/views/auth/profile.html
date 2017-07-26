@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{{profile.user.items_watched}}
 <div class="container">
   <div class="row">
     <div class="col-12 col-md-4 col-lg-4">
@@ -30,17 +30,33 @@
   </div>
   <div class="row">
     <div class="col-lg-10">
+      <h2>Items Watched</h2>
+      <ul>
+        <li class="col-lg-3 col-md-12 col-sm-12 " ng-repeat="item in profile.user.items_watched">
+          <img class="profile-item-image" ng-src="{{ item.image_src }}">
+          <a ui-sref="itemsShow({ id: item.id })">  <p> {{item.title}}</p></a>
+
+          <p> {{item.short_description}}</p>
+          <p> {{item.id}}</p>
+
+
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-lg-10">
+      <h2>Items Posted</h2>
       <ul>
         <li class="col-lg-3 col-md-12 col-sm-12 " ng-repeat="item in profile.user.items">
           <img class="profile-item-image" ng-src="{{ item.image_src }}">
-          <a ui-sref="ItemsShowCtrl({ id: item.id })">  <p> {{item.title}}</p></a>
+          <a ui-sref="itemsShow({ id: item.id })">  <p> {{item.title}}</p></a>
           <p> {{item.short_description |  limitTo:50}}</p>
               <button ng-click="profile.delete(item)">Delete</button>
           <button ui-sref="itemsEdit({id: item.id})" ng-if="main.isAuthenticated() ">Edit</button>
         </li>
       </ul>
-
-
     </div>
 
   </div>
