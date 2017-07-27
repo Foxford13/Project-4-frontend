@@ -84,7 +84,7 @@ function ItemsShowCtrl(Item, User, $stateParams, $state, $auth, Conversation) {
     Conversation
     .save({ sender_id, receiver_id })
     .$promise
-    .then(() => $state.go('conversationsIndex'));
+    .then((id) => $state.go('conversationsShow', id));
 
 
   }

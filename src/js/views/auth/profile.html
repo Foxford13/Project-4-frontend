@@ -1,63 +1,48 @@
 <!DOCTYPE html>
-{{profile.user.items_watched}}
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-4 col-lg-4">
+
+<div class="container height">
+  <div class="row profile-index">
+    <div class="col-md-offset-1 col-md-4 col-md-4">
       <div class="">
 
-        <img ng-src="{{ profile.user.imageSRC }}" alt="profile.user.imageSRC" class="profileImage">
+        <img ng-src="{{ profile.user.image_src }}" alt="profile.user.image_src" class="profileImage">
 
         <button ng-if="main.isAuthenticated() && main.currentUser.id === profile.user.id" class="button primary" ui-sref="profileEdit({id: profile.user.id})"> Edit </button>
 
         <button class="button secondary margin" ng-if="main.isAuthenticated() && main.currentUser.id=== profile.user.id" ng-click="main.logout()"> Logout </button>
-
-        <div class="bio">
-          <span> About</span>
-          <p>{{ profile.user.bio}}</p>
-        </div>
       </div>
     </div>
 
-    <div class="col-12 col-md-8 col-lg-7">
-
-      <h2 ng-if="profile.user"> {{ profile.user.username }}  – <span> {{ profile.user.firstname }}, {{ profile.user.lastname }}</span></h2>
-      <h3>User Reviews</h3>
-
-
-
-
+    <div class="col-md-offset-1 col-md-4 col-md-4">
+      <h2 > Username: {{ profile.user.username }} </h2>
+      <p>  {{ profile.user.firstname }}, {{ profile.user.lastname }}</p>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-10">
+    <div class="col-md-10 col-md-offset-1">
       <h2>Items Watched</h2>
       <ul>
-        <li class="col-lg-3 col-md-12 col-sm-12 " ng-repeat="item in profile.user.items_watched">
+        <li class="col-md-3 col-md-12 col-sm-12 " ng-repeat="item in profile.user.items_watched">
           <img class="profile-item-image" ng-src="{{ item.image_src }}">
           <a ui-sref="itemsShow({ id: item.id })">  <p> {{item.title}}</p></a>
-
           <p> {{item.short_description}}</p>
           <p> {{item.id}}</p>
-
-
         </li>
       </ul>
     </div>
-
   </div>
   <div class="row">
-    <div class="col-lg-10">
+    <div class="col-md-10 col-md-offset-1">
       <h2>Items Posted</h2>
       <ul>
-        <li class="col-lg-3 col-md-12 col-sm-12 " ng-repeat="item in profile.user.items">
+        <li class="col-md-3 col-md-12 col-sm-12 " ng-repeat="item in profile.user.items">
           <img class="profile-item-image" ng-src="{{ item.image_src }}">
           <a ui-sref="itemsShow({ id: item.id })">  <p> {{item.title}}</p></a>
           <p> {{item.short_description |  limitTo:50}}</p>
-              <button ng-click="profile.delete(item)">Delete</button>
+          <button ng-click="profile.delete(item)">Delete</button>
           <button ui-sref="itemsEdit({id: item.id})" ng-if="main.isAuthenticated() ">Edit</button>
         </li>
       </ul>
     </div>
-
   </div>
 </div>

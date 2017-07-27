@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<div class="row">
+<div class="row height">
   <div class="col-md-6">
     <form ng-submit="auth.register()">
       <div>
@@ -28,6 +28,11 @@
       <div>
         <label>Password Confirmation</label>
         <input type="password" ng-model="auth.user.password_confirmation">
+      </div>
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input base64 type="file" name="image" id="image" ng-model="auth.user.base64" class="imgUpload col-12">
+        <img class="imgUploadImg" ng-src="{{ auth.user.base64 }}">
       </div>
 
       <button>Register</button>

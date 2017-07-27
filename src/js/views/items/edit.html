@@ -1,101 +1,120 @@
 <!DOCTYPE html>
-<div class="container">
-<div class="row">
-  <div class="col-md-6 submit-form">
-    <form ng-submit="itemsEdit.update()" name="itemsEdit.postForm" novalidate>
-
-      <div>
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" ng-model="itemsEdit.item.title" required>
-        <div ng-messages="itemsEdit.postForm.title.$error" ng-if="itemsEdit.postForm.$submitted || itemsEdit.postForm.title.$touched">
-          <div ng-message="required" class="notificationThin">Title is required.</div>
-        </div>
-      </div>
-      <div>
-      <label for="base64">Image</label>
-      <input type="file" base64 name="base64" id="base64" ng-model="itemsEdit.item.base64">
-      <div ng-messages="itemsEdit.postForm.image.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.image.$touched">
-        <div ng-message="required" class="notificationThin">Image is required.</div>
-      </div>
-    </div>
+<section class="section height">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 submit-form">
+      <h2>Edit Item</h2>
+      <form ng-submit="itemsEdit.update()" name="itemsEdit.postForm" novalidate>
 
 
-      <div>
-        <label for="brand">Brand</label>
-        <input type="text" id="brand" name="brand" ng-model="itemsEdit.item.brand" required>
-        <div ng-messages="itemsEdit.postForm.brand.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.brand.$touched">
-          <div ng-message="required" class="notificationThin">Brand is required.</div>
-        </div>
-      </div>
-      <div>
-          <label>Type</label>
-          <select name="super_type" ng-model="itemsEdit.item.super_type" required>
-             <option value="" >Select your option</option>
-            <option value="Hardware" >Hardware</option>
-            <option value="Accessories">Accessories</option>
-          </select>
-          <div ng-messages="itemsEdit.postForm.super_type.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.super_type.$touched">
-            <div ng-message="required" class="notificationThin">Type is required.</div>
+        <div class="field-row">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" ng-model="itemsEdit.item.title" required>
+          <div class="ng-message" ng-messages="itemsEdit.postForm.title.$error" ng-if="itemsEdit.postForm.$submitted || itemsEdit.postForm.title.$touched">
+            <div ng-message="required" class="notificationThin">Title is required.</div>
           </div>
-      </div>
-      <div>
-          <label>Sub type</label>
-          <select ng-show="itemsEdit.item.super_type=='Hardware'" ng-model="itemsEdit.item.sub_type">
-            <option value="" disabled selected>Select your option</option>
-            <option value="Motherboard">Motherboard</option>
-            <option value="CPU">CPU</option>
-            <option value="GPU">GPU</option>
-            <option value="RAM">RAM</option>
-            <option value="Power Supply">Power Supply</option>
-            <option value="Other">Other</option>
-          </select>
-          <select ng-show="itemsEdit.item.super_type=='Accessories'" ng-model="itemsEdit.item.sub_type">
-            <option value="" disabled selected>Select your option</option>
-            <option value="Monitor">Monitor</option>
-            <option value="Mouse">Mouse</option>
-            <option value="Cables">Cables</option>
-            <option value="VR">VR</option>
-            <option value="RGB lighting">RGB lighting</option>
-            <option value="Gamepad">Gamepad</option>
-            <option value="Keyboard">Keyboard</option>
-            <option value="Other">Other</option>
-          </select>
-      </div>
-      <div>
-        <label for="location">Location</label>
-        <input type="text" id="location" name="location" ng-model="itemsEdit.item.location" required>
-        <div ng-messages="itemsEdit.postForm.location.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.location.$touched">
-          <div ng-message="required" class="notificationThin">Location is required.</div>
         </div>
-      </div>
-      <div>
-        <label for="short_description">Short Description</label>
-        <input type="text" id="short_description" name="short_description" ng-model="itemsEdit.item.short_description" required>
-        <div ng-messages="itemsEdit.postForm.short_description.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.short_description.$touched">
-          <div ng-message="required" class="notificationThin">Short description is required.</div>
+        <div class="field-row">
+          <label for="base64">Image</label>
+          <input type="file" base64 name="base64" id="base64" ng-model="itemsEdit.item.base64">
+          <div class="ng-message" ng-messages="itemsEdit.postForm.base64.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.base64.$touched">
+            <div ng-message="required" class="notificationThin">Image is required.</div>
+          </div>
         </div>
-      </div>
-      <div>
-        <label for="full_description">Full Description</label>
-        <input type="textarea" id="full_description" name="full_description" ng-model="itemsEdit.item.full_description" required>
-        <div ng-messages="itemsEdit.postForm.full_description.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.full_description.$touched">
-          <div ng-message="required" class="notificationThin">Description is required.</div>
-        </div>
-      </div>
-      <div>
-        <label for="price">Price</label>
-        <input type="text" id="price" name="price" ng-model="itemsEdit.item.price" required>
-        <div ng-messages="itemsEdit.postForm.price.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.price.$touched">
-          <div ng-message="required" class="notificationThin">Price is required.</div>
-        </div>
-      </div>
-      <div class="field">
-    <p class="control">
-      <input type="submit" class="button primary" value="Submit Post">
-    </p>
-  </div>
 
-    </form>
+
+        <div class="field-row">
+          <label for="brand">Brand</label>
+          <input type="text" id="brand" name="brand" ng-model="itemsEdit.item.brand" required>
+          <div class="ng-message" ng-messages="itemsEdit.postForm.brand.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.brand.$touched">
+            <div ng-message="required" class="notificationThin">Brand is required.</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 field-row">
+            <label>Type</label>
+            <select name="super_type" ng-model="itemsEdit.item.super_type" required>
+              <option value="" >Select your option</option>
+              <option value="Hardware" >Hardware</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+
+          </div>
+
+          <div class="col-md-6">
+            <label ng-show="itemsEdit.item.super_type">Sub type</label>
+            <select name="sub_type" ng-show="itemsEdit.item.super_type=='Hardware' && itemsEdit.item.super_type!='Accessory'" ng-model="itemsEdit.item.sub_type" required>
+              <option value="" >Select your option</option>
+              <option value="Motherboard">Motherboard</option>
+              <option value="CPU">CPU</option>
+              <option value="GPU">GPU</option>
+              <option value="RAM">RAM</option>
+              <option value="Power Supply">Power Supply</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <select name="name" ng-show="itemsEdit.item.super_type=='Accessory' && itemsEdit.item.super_type!='Hardware'" ng-model="itemsEdit.item.sub_type" required>
+              <option value="" >Select your option</option>
+              <option value="Monitor">Monitor</option>
+              <option value="Mouse">Mouse</option>
+              <option value="Cables">Cables</option>
+              <option value="VR">VR</option>
+              <option value="RGB lighting">RGB lighting</option>
+              <option value="Gamepad">Gamepad</option>
+              <option value="Keyboard">Keyboard</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="ng-message" ng-messages="itemsEdit.postForm.super_type.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.super_type.$touched">
+              <div ng-message="required" class="notificationThin">Type is required.</div>
+            <div class="ng-message" ng-messages="itemsEdit.postForm.sub_type.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.sub_type.$touched">
+              <div ng-message="required" class="notificationThin">Sub type is required.</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" ng-model="itemsEdit.item.location" required>
+          <div class="ng-message" ng-messages="itemsEdit.postForm.location.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.location.$touched">
+            <div ng-message="required" class="notificationThin">Location is required.</div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <label for="short_description">Short Description</label>
+          <input type="text" id="short_description" name="short_description" ng-model="itemsEdit.item.short_description" required>
+          <div class="ng-message" ng-messages="itemsEdit.postForm.short_description.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.short_description.$touched">
+            <div ng-message="required" class="notificationThin">Short description is required.</div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <label for="price">Price</label>
+          <input type="text" id="price" name="price" ng-model="itemsEdit.item.price" required>
+          <div class="ng-message" ng-messages="itemsEdit.postForm.price.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.price.$touched">
+            <div ng-message="required" class="notificationThin">Price is required.</div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <label for="full_description">Full Description</label>
+          <textarea type="text" id="full_description" name="full_description" ng-model="itemsEdit.item.full_description" required></textarea>
+          <div class="ng-message" ng-messages="itemsEdit.postForm.full_description.$error" ng-show="itemsEdit.postForm.$submitted || itemsEdit.postForm.full_description.$touched">
+            <div ng-message="required" class="notificationThin">Description is required.</div>
+          </div>
+        </div>
+
+
+
+        <div class="field">
+          <p class="control">
+            <input type="submit" class="button primary" value="Submit Post">
+          </p>
+        </div>
+      </form>
+
+    </div>
   </div>
-</div>
-</div>
+</section>

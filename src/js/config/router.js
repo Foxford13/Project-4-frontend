@@ -48,15 +48,15 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     templateUrl: 'js/views/auth/editProfile.html',
     controller: 'EditProfileCtrl as profileEdit'
   })
-  .state('conversationsIndex', {
-    url: '/conversations',
-    templateUrl: 'js/views/conversations/index.html',
-    controller: 'ConversationsIndexCtrl as conversationsIndex'
-  })
   .state('conversationsShow', {
     url: '/conversations/:id',
     templateUrl: 'js/views/conversations/show.html',
     controller: 'ConversationsShowCtrl as conversationsShow'
+  })
+  .state('conversationsIndex', {
+    url: '/conversations',
+    templateUrl: 'js/views/conversations/index.html',
+    controller: 'ConversationsIndexCtrl as conversationsIndex'
   });
   $urlRouterProvider.otherwise('/');
 }

@@ -1,6 +1,42 @@
 body {
-  background-color: white;
+
+  background-opacity: 0.2;
+
   font-family: 'Ubuntu', sans-serif;
+
+}
+main {
+    padding-bottom: 100px;
+}
+.height {
+  height: 100vh;
+
+}
+select {
+  height: 25px;
+}
+
+.imageBackground:after {
+  content: "";
+  background: url('../images/background.gif') no-repeat center center fixed;
+  opacity: 0.05;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+
+
+}
+
+.itemIndex {
+  .imageBackground {
+    margin-left: -60px;
+
+    position: absolute;
+  }
+  position: relative;
 }
 
 nav {
@@ -27,8 +63,8 @@ nav {
 
         color: white;
         text-decoration: none !important;
-        padding: 10px;
-        transition: 0.2s ease;
+        padding: 0 10px 4px 10px;
+        transition: 0.5s ease;
 
         &:focus, &:hover {
           color: lighten(#404040, 10%);
@@ -46,11 +82,17 @@ nav {
     }
     a:hover {
       padding-top: 8px;
-      padding-bottom: 8px;
+
       background-color: white;
 
 
     }
+  }
+}
+.profile-index {
+  margin-top: 25px;
+  .profileImage{
+    max-height: 200px;
   }
 }
 .image-index {
@@ -63,31 +105,60 @@ nav {
   background-repeat:   no-repeat;
   background-size:     cover;
 }
+.button {
+
+  bottom: 0;
+
+  background-color: rgba(0, 78, 79, 0.5);
+  border: 1px solid white;
+  // border-radius: 2px;
+  margin-bottom: 15px;
+
+  color: white;
+}
+button  {
+
+  bottom: 0;
+
+  background-color: rgba(0, 78, 79, 0.5);
+  border: 1px solid white;
+  // border-radius: 2px;
+  margin-bottom: 15px;
+
+  color: white;
+}
+
+button:hover{
+  background-color: rgba(0, 78, 79, 0.7);
+}
+
+.search-again {
+  color: gray;
+  text-align: center;
+}
 
 .index-items {
   margin: 0;
+
   .item {
-    button {
-      position: absolute;
-      bottom: 0;
-      left: 30%;
-      background-color: rgba(0, 78, 79, 0.5);
-      border: none;
-      border-radius: 2px;
-      margin-bottom: 15px;
-      color: rgba(227, 229, 227, 1);
-      color: white;
-    }
-    button:hover{
-      background-color: rgba(0, 78, 79, 1);
-    }
-    border: 1px solid rgba(0, 78, 79, 1);
+    border: 1px solid rgba(0, 78, 79, 0.5);
     padding: 15px;
     text-align: center;
-    background-color: rgba(196, 144, 99, 0.5);
-    border-radius: 5px;
+    background-color: rgba(0, 78, 79, 0.1);
     height: 350px;
     margin: 10px 0;
+
+    button:hover{
+      background-color: rgba(0, 78, 79, 0.7);
+    }
+
+    button {
+      position:absolute;
+      bottom: 0;
+      background-color: rgba(0, 78, 79, 0.5);
+      border: 1px solid white;
+
+    }
 
 
   }
@@ -97,11 +168,13 @@ nav {
   }
 
 }
+
+
 .searchBox {
   //hoooooooow?
   border: 1px solid black;
-  border-radius: 1px;
-  width: 150px;
+  border-radius: 10px;
+  width: 300px;
   height: 30px;
   font-size: 15px;
   margin-top: 15px;
@@ -109,55 +182,185 @@ nav {
 
 }
 
-form {
-  .button {
-    position: absolute;
-    bottom: 0;
-    left: 35%;
-    background-color: rgba(0, 78, 79, 0.5);
-    border: none;
-    border-radius: 2px;
-    margin-bottom: 15px;
-    color: rgba(227, 229, 227, 1);
-  }
-}
+
 .submit-form {
+
   border: 1px solid rgba(0, 78, 79, 1);
-  padding: 15px;
+  padding: 15px 30px;
+  background-color: rgba(0, 78, 79, 0.2);
+  margin-top: 15px;
 
-  background-color: rgba(196, 144, 99, 0.5);
   border-radius: 5px;
-
-  margin: 10px 0;
-  input {
+  .ng-message {
     float: right;
+    color: red;
   }
   select {
-    float: right;
+    display: block;
+  }
+  .field-row {
+    margin-bottom: 5px;
+
+    label {
+
+    }
+    textarea {
+      width:400px;
+      border: none;
+
+    }
+    input {
+      display: block;
+      // float:right;
+      border: none;
+
+    }
+    textarea {
+      display: block;
+
+    }
   }
 
 }
 .show-row {
   margin-top: 15px;
 
-  .show-text {
 
+  .show-text {
+    padding: 25px;
+    border-radius: 5px;
+    min-height: 250px;
     margin-top: 15px;
-    text-align: center;
-    background-color: rgba(0, 78, 79, 0.2);
-    border: 1px solid;
+    margin-bottom: 50px;
+    background-color: rgba(0, 78, 79, 0.1);
+
   }
   .description-show {
+    margin-top: 50px;
+    padding:15px;
     background-color: rgba(0, 78, 79, 0.2);
     border: 1px solid;
+    margin-right: 0;
+    min-height: 400px;
+    .short-description-show {
+      word-wrap: break-word;
+    }
+    button {
+
+
+      bottom: -100px;
+      background-color: rgba(0, 78, 79, 0.5);
+      border: 1px solid;
+
+      bottom: 10px;
+      margin-left: 25px;
+      display: inline-block;
+
+    }
+    button:hover {
+      background-color: rgba(0, 78, 79, 0.8);
+
+    }
   }
 }
 .image-show {
-
+  margin-top: 70px;
+  text-align: center;
   img {
     max-height: 400px;
   }
 }
 .profile-item-image {
   max-height: 100px;
+}
+
+
+.message-repeat  {
+  width: 500px;
+
+
+
+  background-color: rgba(0, 78, 79, 0.3);
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 5px;
+
+  .message-date {
+    font-size: 10px;
+    float: right;
+  }
+  h5 {
+    word-wrap: break-word;
+  }
+
+
+}
+
+li.message-repeat:nth-child(odd){
+  background-color: rgba(0, 78, 79, 0.5);
+
+}
+.show-messages-bar {
+
+  a {
+    color:white;
+    float: left;
+    height: 30px;
+    border-radius:5px;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 5px;
+    font-size: 15px;
+    text-decoration: none;
+    background: rgba(0, 78, 79, 0.5);
+    &:hover{
+      background-color: rgba(0, 78, 79, 1);
+    }
+  }
+
+
+}
+.send-message {
+  textarea {
+    width:500px;
+  }
+  button {
+    background-color: rgba(0, 78, 79, 0.5);
+    border: 1px solid;
+
+
+  }
+}
+.messages-show-row{
+  margin-top: 20px;
+  li {
+    list-style-type: none;
+  }
+}
+
+body {
+  color: black;
+}
+.search-bottom {
+
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+
+  text-align: center;
+
+
+  button {
+    width: 502px;
+
+  }
+}
+.messageImage {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
 }

@@ -2,15 +2,20 @@
 
 
 <div class="container">
+
+
   <div class="row">
-    <div class="searchBox col-lg-4 col-lg-offset-5 ">
-      <i class="fa fa-search" aria-hidden="true"></i>
-      <input type="text" class="searchBox" ng-model="itemsIndex.title" placeholder="Search.... ">
+    <div class="col-lg-4 col-lg-offset-4 ">
+
+      <input type="text" class="searchBox" ng-model="itemsIndex.title" placeholder="Search.... " ng-model-options="{updateOn : 'change blur'}">
     </div>
   </div>
+
+
+
   <div class="row">
-    <div class="col-lg-8">
-      <div>
+    <div>
+      <div class="col-lg-3 col-lg-offset-1 field-row">
         <label>Type</label>
         <select name="super_type" ng-model="itemsIndex.super_type">
           <option value="" default>Select your option</option>
@@ -18,8 +23,8 @@
           <option value="Accessory">Accessory</option>
         </select>
       </div>
-      <div>
-        <label>Sub type</label>
+      <div class="col-lg-3  field-row">
+        <label ng-show="itemsIndex.super_type">Sub type</label>
         <select ng-show="itemsIndex.super_type=='Hardware' && itemsIndex.super_type!='Accessory'" ng-model="itemsIndex.sub_type">
           <option value="" default>Select your option</option>
           <option value="Motherboard">Motherboard</option>
@@ -29,6 +34,8 @@
           <option value="Power Supply">Power Supply</option>
           <option value="Other">Other</option>
         </select>
+      </div>
+      <div class="col-lg-3 field-row">
         <select ng-show="itemsIndex.super_type=='Accessory' && itemsIndex.super_type!='Hardware'" ng-model="itemsIndex.sub_type">
           <option value="" default>Select your option</option>
           <option value="Monitor">Monitor</option>
@@ -45,15 +52,22 @@
   </div>
 
   <div class="row index-items ">
+    <div class="search-again" ng-if="itemsIndex.filtered.length===0">
+      <div class="height">
+          <h1> Search again</h1>
+      </div>
+
+    </div>
+
     <ul>
 
-      <li class="col-lg-3 col-md-6 col-sm-12 " ng-repeat="item in itemsIndex.filtered">
+      <li class="col-lg-3 col-md-6 col-sm-12 " ng-repeat="item in itemsIndex.filtered" ng-class="{height: itemsIndex.filtered.length < 8}">
         <div class="item">
           <h3>{{ item.title}}</h3>
           <img class="image-index justify-content-center" ng-src="{{ item.image_src }}">
           <h4>{{ item.sub_type}}</h4>
           <h5>{{ item.price}}</h5>
-          <button ui-sref="itemsShow({id: item.id})">Lets check it out</button>
+          <button class="button-index" ui-sref="itemsShow({id: item.id})">Lets check it out</button>
         </div>
       </li>
 

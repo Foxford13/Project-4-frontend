@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<p>here {{conversationsIndex}}</p>
-<div class="container">
+<div class="container height">
   <div class="row">
 
     <li ng-repeat="conversation in conversationsIndex.all" class="col-lg-12">
@@ -8,6 +7,7 @@
 
         <ul>
           <p>Conversation: <a ui-sref="conversationsShow({id: conversation.id})"> {{conversation.sender.username}} & {{conversation.receiver.username}}</a></p>
+                    <button class="delete" ng-click="conversationsIndex.deleteConversation(conversation)" ng-if="main.isAuthenticated()">Delete Conversation</button>
 
         </ul>
       </div>

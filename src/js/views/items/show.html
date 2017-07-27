@@ -3,46 +3,46 @@
 
 
   <div class="row show-row">
-    <div class="col-lf-10 col-md-offset-3">
+    <div class="col-lg-5 col-md-offset-1 image-show">
+      <img ng-src="{{ itemsShow.item.image_src }}">
+    </div>
+    <div class="col-md-4 col-md-offset-1">
       <div class="item">
-        <div class="col-lg-5 image-show">
-          <img ng-src="{{ itemsShow.item.image_src }}">
-        </div>
-        <div class="col-lg-5 description-show">
-          <div class="col-lg-10">
-            <h2><strong> {{ itemsShow.item.title }} </strong></h2>
 
-            <h3><strong>Location: </strong>{{ itemsShow.item.location }}</h3>
-            <h3><strong>Brand: </strong>{{ itemsShow.item.brand}}</h3>
-            <h3><strong>Type: </strong>{{ itemsShow.item.super_type}}</h3>
-            <h3><strong>Sub_type: </strong>{{ itemsShow.item.sub_type}}</h3>
+        <div class="description-show">
+          <h4><strong> {{ itemsShow.item.title }} </strong></h4>
 
-            <h4><strong>Specs: </strong>{{ itemsShow.item.short_description  }}</h4>
+          <p><strong>Location: </strong>{{ itemsShow.item.location }}</p>
+          <p><strong>Brand: </strong>{{ itemsShow.item.brand}}</p>
+          <p><strong>Type: </strong>{{ itemsShow.item.super_type}}</p>
+          <p><strong>Sub_type: </strong>{{ itemsShow.item.sub_type}}</p>
 
-            <h4><strong>Price: </strong>{{ itemsShow.item.price  }}</h4>
+          <p class="short-description-show"><strong>Specs: </strong>{{ itemsShow.item.short_description  }}</p>
 
-            <p>Created by: <strong><a ui-sref="profile({ id: itemsShow.item.user.id })">{{ itemsShow.item.user.username }}</a></strong></p>
+          <p><strong>Price: </strong>{{ itemsShow.item.price  }}</p>
 
-            <button ng-click="itemsShow.toggleWatching()" ng-if="main.isAuthenticated() && !itemsShow.isWatching()" >Watch</button>
-            <button ng-click="itemsShow.toggleWatching()" ng-if="main.isAuthenticated() && itemsShow.isWatching()" >Un-watch</button>
+          <p>Created by: <strong><a ui-sref="profile({ id: itemsShow.item.user.id })">{{ itemsShow.item.user.username }}</a></strong></p>
 
-            <button ui-sref="itemsEdit({id: itemsShow.item.id})" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Edit</button>
-            <button ng-click="itemsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Delete</button>
 
-            <button ng-click="itemsShow.contact( main.currentUser.id, itemsShow.item.user.id)" ng-if="main.isAuthenticated() && main.currentUser.id !== itemsShow.item.user.id">Message the seller</button>
 
-          </div>
+          <button ui-sref="itemsEdit({id: itemsShow.item.id})" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Edit</button>
+          <button ng-click="itemsShow.delete()" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Delete</button>
+
+          <button ng-click="itemsShow.contact( main.currentUser.id, itemsShow.item.user.id)" ng-if="main.isAuthenticated() && main.currentUser.id !== itemsShow.item.user.id">Message the seller</button>
+          <button ng-click="itemsShow.toggleWatching()" ng-if="main.isAuthenticated() && !itemsShow.isWatching()&& main.currentUser.id !== itemsShow.item.user.id" >Watch</button>
+          <button ng-click="itemsShow.toggleWatching()" ng-if="main.isAuthenticated() && itemsShow.isWatching() && main.currentUser.id !== itemsShow.item.user.id" >Un-watch</button>
+
         </div>
       </div>
 
     </div>
   </div>
   <div class="row show-row">
-    <div class="col-lg-12 ">
+
       <div class="col-lg-10 col-lg-offset-1 show-text">
         <h4>{{ itemsShow.item.full_description  }}</h4>
       </div>
     </div>
-  </div>
+
 
 </div>
