@@ -95,16 +95,7 @@ nav {
     max-height: 200px;
   }
 }
-.image-index {
-  position: relative;
 
-  // width:  2px;
-  max-height: 150px;
-  max-width: 200px;
-  background-position: 50% 50%;
-  background-repeat:   no-repeat;
-  background-size:     cover;
-}
 .button {
 
   bottom: 0;
@@ -118,12 +109,12 @@ nav {
 }
 button  {
 
-  bottom: 0;
+
 
   background-color: rgba(0, 78, 79, 0.5);
   border: 1px solid white;
   // border-radius: 2px;
-  margin-bottom: 15px;
+
 
   color: white;
 }
@@ -139,6 +130,19 @@ button:hover{
 
 .index-items {
   margin: 0;
+  .title-index {
+    height: 53px;
+  }
+  .image-index {
+    position: relative;
+
+    // width:  2px;
+    height: 150px;
+    width: 200px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+  }
 
   .item {
     border: 1px solid rgba(0, 78, 79, 0.5);
@@ -153,8 +157,9 @@ button:hover{
     }
 
     button {
-      position:absolute;
-      bottom: 0;
+
+
+
       background-color: rgba(0, 78, 79, 0.5);
       border: 1px solid white;
 
@@ -197,6 +202,7 @@ button:hover{
   }
   select {
     display: block;
+    
   }
   .field-row {
     margin-bottom: 5px;
@@ -248,7 +254,7 @@ button:hover{
     button {
 
 
-      bottom: -100px;
+
       background-color: rgba(0, 78, 79, 0.5);
       border: 1px solid;
 

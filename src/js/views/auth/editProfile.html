@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<div class="container height">
+<div class="container height" ng-class="{height: profileEdit.user.base64 < 1}">
   <div class="formBox col-lg-8 col-sm-12">
-    profile.user.image_src
+    
     <form ng-submit="profileEdit.update()" name="profileEdit.postForm">
 
       <div class="formTitle">

@@ -25,7 +25,7 @@
       </div>
       <div class="col-lg-3  field-row">
         <label ng-show="itemsIndex.super_type">Sub type</label>
-        <select ng-show="itemsIndex.super_type=='Hardware' && itemsIndex.super_type!='Accessory'" ng-model="itemsIndex.sub_type">
+        <select ng-if="itemsIndex.super_type=='Hardware' && itemsIndex.super_type!='Accessory'" ng-model="itemsIndex.sub_type">
           <option value="" default>Select your option</option>
           <option value="Motherboard">Motherboard</option>
           <option value="CPU">CPU</option>
@@ -34,9 +34,8 @@
           <option value="Power Supply">Power Supply</option>
           <option value="Other">Other</option>
         </select>
-      </div>
-      <div class="col-lg-3 field-row">
-        <select ng-show="itemsIndex.super_type=='Accessory' && itemsIndex.super_type!='Hardware'" ng-model="itemsIndex.sub_type">
+  
+        <select ng-if="itemsIndex.super_type=='Accessory' && itemsIndex.super_type!='Hardware'" ng-model="itemsIndex.sub_type">
           <option value="" default>Select your option</option>
           <option value="Monitor">Monitor</option>
           <option value="Mouse">Mouse</option>
@@ -63,7 +62,7 @@
 
       <li class="col-lg-3 col-md-6 col-sm-12 " ng-repeat="item in itemsIndex.filtered" ng-class="{height: itemsIndex.filtered.length < 8}">
         <div class="item">
-          <h3>{{ item.title}}</h3>
+          <h3 class="title-index">{{ item.title}}</h3>
           <img class="image-index justify-content-center" ng-src="{{ item.image_src }}">
           <h4>{{ item.sub_type}}</h4>
           <h5>{{ item.price}}</h5>
