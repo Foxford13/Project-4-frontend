@@ -15,26 +15,27 @@
     <nav>
       <ul>
         <li><a ui-sref="itemsIndex" ui-sref-active="active">Home</a></li>
-        <li ng-if="!main.isAuthenticated()"><a ui-sref="login" ui-sref-active="active">Login</a></li>
-        <li ng-if="!main.isAuthenticated()"><a ui-sref="register" ui-sref-active="active">Register</a></li>
-        <li ng-if="main.isAuthenticated()"><a ui-sref="conversationsIndex" ui-sref-active="active">Convo</a></li>
+        <li ng-if="!main.isAuthenticated()" class="navbar-right "><a ui-sref="login" ui-sref-active="active">Login</a></li>
+        <li ng-if="!main.isAuthenticated()" class="navbar-right "><a ui-sref="register" ui-sref-active="active">Register</a></li>
+
         <li ng-if="main.isAuthenticated()"><a ui-sref="itemsNew" ui-sref-active="active">New Item</a></li>
-        <li ng-if="main.isAuthenticated()"><a ng-click="main.logout()" href="#">Logout</a></li>
+        <li ng-if="main.isAuthenticated()" class="navbar-right "><a ng-click="main.logout()" href="#">Logout</a></li>
 
-        <li ng-if="main.isAuthenticated()"><a ui-sref="profile({ id: main.currentUser.id })">Profile</a></li>
-
-
-          </ul>
-        </nav>
-      </header>
-      <div class="message" ng-if="main.message">
-        <div class="container">{{main.message}}</div>
-      </div>
-
-      <main class="itemIndex imageBackground" ui-view>
-
-      </main>
+        <li ng-if="main.isAuthenticated()" class="navbar-right "><a ui-sref="profile({ id: main.currentUser.id })">Profile</a></li>
+        <li ng-if="main.isAuthenticated()" class="navbar-right "><a ui-sref="conversationsIndex" ui-sref-active="active">Convo</a></li>
 
 
-    </body>
-    </html>
+      </ul>
+    </nav>
+  </header>
+  <div class="message" ng-if="main.message">
+    <div class="container">{{main.message}}</div>
+  </div>
+
+  <main class="itemIndex imageBackground" ui-view>
+
+  </main>
+
+
+</body>
+</html>

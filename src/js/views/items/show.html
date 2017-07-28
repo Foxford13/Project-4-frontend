@@ -12,10 +12,11 @@
         <div class="description-show">
           <h4><strong> {{ itemsShow.item.title }} </strong></h4>
 
-          <p><strong>Location: </strong>{{ itemsShow.item.location }}</p>
+
           <p><strong>Brand: </strong>{{ itemsShow.item.brand}}</p>
           <p><strong>Type: </strong>{{ itemsShow.item.super_type}}</p>
-          <p><strong>Sub_type: </strong>{{ itemsShow.item.sub_type}}</p>
+          <p><strong>Sub type: </strong>{{ itemsShow.item.sub_type}}</p>
+          <p><strong>Location: </strong>{{ itemsShow.item.location }}</p>
 
           <p class="short-description-show"><strong>Specs: </strong>{{ itemsShow.item.short_description  }}</p>
 
@@ -39,10 +40,11 @@
   </div>
   <div class="row show-row">
 
-      <div class="col-lg-10 col-lg-offset-1 show-text">
-        <h4>{{ itemsShow.item.full_description  }}</h4>
-      </div>
+    <div class="col-lg-10 col-lg-offset-1 show-text">
+      <h4>Item description</h4>
+      <p>{{ itemsShow.item.full_description  }}</p>
     </div>
+  </div>
 
 
 </div>

@@ -40,7 +40,7 @@ select {
 }
 
 nav {
-  background-color: black;
+    background-color: rgba(0, 78, 79, 1);
   height: 25px;
   padding-right: 30px;
   padding-left: 30px;
@@ -74,12 +74,7 @@ nav {
 
       }
     }
-    li:nth-child(4){
-      float: right;
-    }
-    li:nth-child(5){
-      float: right;
-    }
+
     a:hover {
       padding-top: 8px;
 
@@ -202,7 +197,7 @@ button:hover{
   }
   select {
     display: block;
-    
+
   }
   .field-row {
     margin-bottom: 5px;
@@ -233,6 +228,7 @@ button:hover{
 
 
   .show-text {
+    border: 1px solid black;
     padding: 25px;
     border-radius: 5px;
     min-height: 250px;
@@ -274,6 +270,7 @@ button:hover{
   text-align: center;
   img {
     max-height: 400px;
+    max-width: 550px;
   }
 }
 .profile-item-image {
@@ -302,9 +299,12 @@ button:hover{
 
 }
 
-li.message-repeat:nth-child(odd){
+// li.message-repeat:nth-child(odd){
+//   background-color: rgba(0, 78, 79, 0.5);
+//
+// }
+.receiver {
   background-color: rgba(0, 78, 79, 0.5);
-
 }
 .show-messages-bar {
 
@@ -369,4 +369,8 @@ body {
   position: relative;
   overflow: hidden;
   border-radius: 50%;
+}
+.profile-description {
+      word-wrap: break-word;
+
 }
