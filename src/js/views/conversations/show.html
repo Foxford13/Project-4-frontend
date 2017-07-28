@@ -24,7 +24,7 @@
 
       <ul>
         <li ng-repeat="message in conversationsShow.conversation.messages"  class="row message-repeat" >
-          <div class="col-md-2">
+          <div class="col-md-2 convo-image" ng-class="{receiver: main.currentUser.id === message.user.id}">
             <img ng-src="{{ message.user.image_src }}" alt="profile.user.image_src" class="messageImage">
           </div>
 
