@@ -27,9 +27,8 @@
           <div class="col-md-2">
             <img ng-src="{{ message.user.image_src }}" alt="profile.user.image_src" class="messageImage">
           </div>
-      
 
-          <div class="col-lg-10" ng-class="{height: itemsIndex.filtered.length < 8}">
+          <div class="col-lg-10" ng-class="{receiver: main.currentUser.id === message.user.id}">
             <h5><strong>{{ message.user.username }}</strong> : "{{ message.body }}"</h5>
             <p class="message-date">{{message.message_time}}</p>
 
