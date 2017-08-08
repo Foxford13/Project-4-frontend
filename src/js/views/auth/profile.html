@@ -38,8 +38,8 @@
           <img class="profile-item-image" ng-src="{{ item.image_src }}">
           <a ui-sref="itemsShow({ id: item.id })">  <p> {{item.title}}</p></a>
           <p class="profile-description"> {{item.short_description |  limitTo:50}}</p>
-          <button ng-click="profile.delete(item)">Delete</button>
-          <button ui-sref="itemsEdit({id: item.id})" ng-if="main.isAuthenticated() ">Edit</button>
+          <button ng-click="profile.delete(item)" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Delete</button>
+          <button ui-sref="itemsEdit({id: item.id})" ng-if="main.isAuthenticated() && main.currentUser.id === itemsShow.item.user.id">Edit</button>
         </li>
       </ul>
     </div>

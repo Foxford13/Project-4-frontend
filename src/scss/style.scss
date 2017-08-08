@@ -122,11 +122,21 @@ button:hover{
   color: gray;
   text-align: center;
 }
+.field-row {
+  margin-bottom: 5px;
+  label {
+  margin-right: 15px;
+}
+}
 
 .index-items {
-  margin: 0;
+
   .title-index {
     height: 53px;
+  margin-top: 10px;
+        line-height: 30px;
+
+
   }
   .image-index {
     position: relative;
@@ -179,6 +189,8 @@ button:hover{
   font-size: 15px;
   margin-top: 15px;
   margin-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 
 }
 
